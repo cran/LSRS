@@ -6,12 +6,12 @@
 NBR2= (SWIR1 - SWIR2) / (SWIR1 + SWIR2)
 }
 \usage{
-NBR2(a = SWIR1, b = SWIR2)
+NBR2(a = "SWIR1", b = "SWIR2")
 }
 \arguments{
-  \item{a}{SWIR1 satellite band (format:TIF)
+  \item{a}{SWIR1 satellite band (Wavelength:1.566 - 1.651 micrometer) (format:TIF)
 }
-  \item{b}{SWIR2 satellite band (format:TIF)
+  \item{b}{SWIR2 satellite band (Wavelength:2.107 - 2.294 micrometer)(format:TIF)
 }
 }
 \references{[1] https://landsat.usgs.gov/sites/default/files/documents/si_product_guide.pdf
@@ -28,10 +28,7 @@ plot(cropXY,lwd=4,
      main="NBR2",
      xlab="easting", ylab="northing")
 hist(cropXY,
-     main="Histogram of NBR2"  ,
+     main="NBR2"  ,
      xlab="NBR2",col="red", ylab="Frequency of Pixels")
      }
 }
-
-
-

@@ -7,7 +7,7 @@
         The result of this formula generates a value between -1 and +1. If you      have low reflectance (or low values) in the red channel and high             reflectance in the NIR channel, this will yield a high NDVI value. And        vice versa.Overall, NDVI is a standardized way to measure healthy             vegetation. When you have high NDVI values, you have healthier vegetation.     When you have low NDVI, you have less or no vegetation. satellites like       Sentinel-2, Landsat and SPOT produce red and near infrared images.
 }
 \usage{
-NDVI(a = NIR, b = Red)
+NDVI(a="NIR",b="Red")
 }
 \arguments{
   \item{a}{NIR satellite band (format:TIF)
@@ -20,17 +20,17 @@ NDVI(a = NIR, b = Red)
 \author{ Mehdi Sarparast}
 \examples{
 ## The function is currently defined as
-function (a = NIR, b = Red)
-{
-name <- NDVI(a,b)
+function (a, b){
+    name <- NDVI(a,b)
 areaXY <-c(xmin, xmax, ymin, ymax)
 cropXY <- crop(name, areaXY)
 plot(cropXY,lwd=4,
      main="NDVI",
      xlab="easting", ylab="northing")
 hist(cropXY,
-     main="Histogram of NDVI"
-     ,
+     main="NDVI",
+
      xlab="NDVI",col="red", ylab="Frequency of Pixels")
-     }
 }
+}
+

@@ -12,13 +12,17 @@
    where s is the slope of the soil line from a plot of red versus near infrared brightness values.
 }
 \usage{
-MSAVI(a = NIR, b = Red)
+MSAVI(a = "NIR", b = "Red", Pixel.Depth)
 }
 \arguments{
   \item{a}{NIR satellite band (format:TIF)
 }
   \item{b}{Red satellite band (format:TIF)
 }
+  \item{Pixel.Depth}{for satellite image with digital numbers (DN) of 0 to 255,Pixel.Depth=null and for the larger DN, Pixel.Depth=1
+}
+}
+\note{in some cases for satellite image with very large digital numbers it need     to be multiplied with 0.1,0.01,.001,...
 }
 \references{[1] https://water.usgs.gov/GIS/metadata/usgswrd/XML/msavi92.xml.
 [2]http://wiki.landscapetoolbox.org/doku.php/remote_sensing_methods:modified_soil     -adjusted_vegetation_index.
@@ -26,17 +30,15 @@ MSAVI(a = NIR, b = Red)
 \author{Mehdi Sarparast}
 \examples{
 ## The function is currently defined as
-function (a = NIR, b = Red)
+function (a = "NIR", b = "Red", Pixel.Depth)
 {
-name=MSAVI(a,b)
+name=MSAVI(a,b,Pixel.Depth=null)
 areaXY <-c(xmin, xmax, ymin, ymax)
 cropXY <- crop(name, areaXY)
 plot(cropXY,lwd=4, main="MSAVI",
      xlab="easting", ylab="northing")
 hist(cropXY,
-     main="Histogram of MSAVI",
+     main="MSAVI",
      xlab="MSAVI",col="red", ylab="Frequency of Pixels")
   }
 }
-
-

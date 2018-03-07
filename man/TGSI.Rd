@@ -7,8 +7,9 @@
 
     where R, B, and G are the red, blue, and green bands of the remote sensing data, respectively. TGSI is an index used to detect the texture of the topsoil layer, or grain size. Negative values or those near 0 repre- sent zones with vegetation or water bodies and values near 0.20 indicate high contents of fine sand.
 }
+
 \usage{
-TGSI(a = Red, b = Blue, c = green)
+TGSI(a = "Red", b = "Blue", c = "green")
 }
 \arguments{
   \item{a}{Red satellite band (format:TIF)
@@ -24,15 +25,16 @@ TGSI(a = Red, b = Blue, c = green)
 \author{Mehdi Sarparast}
 \examples{
 ## The function is currently defined as
-function (a = Red, b = Blue, c = green)
+function (a = "Red", b = "Blue", c = "green")
 {
-name <- TGSI(a,b,c)
+    name <- TGSI(a,b,c)
 areaXY <-c(xmin, xmax, ymin, ymax)
 cropXY <- crop(name, areaXY)
 plot(cropXY,lwd=4,main="TGSI",
      xlab="easting", ylab="northing")
-hist(cropXY,main="Histogram of TGSI"
+hist(cropXY,main="TGSI"
      ,
      xlab="TGSI",col="red", ylab="Frequency of Pixels")
   }
 }
+

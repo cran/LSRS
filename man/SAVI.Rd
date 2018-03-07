@@ -5,10 +5,10 @@
 
        SAVI=(NIR-Red)/(NIR+Red+L)*(1+L)
 
-    The SAVI is structured similar to the NDVI but with the addition of a         “soil brightness correction factor,” where NIR is the reflectance value of     the near infrared band, RED is reflectance of the red band, and L is the      soil brightness correction factor. The value of L varies by the amount or      cover of green vegetation: in very high vegetation regions, L=0; and in        areas with no green vegetation, L=1. Generally, an L=0.5 works well in      most     situations and is the default value used. When L=0, then SAVI =      NDVI.
+    The SAVI is structured similar to the NDVI but with the addition of a         “soil brightness correction factor,” where NIR is the reflectance value of       the near infrared band, RED is reflectance of the red band, and L is the        soil brightness correction factor. The value of L varies by the amount or      cover of green vegetation: in very high vegetation regions, L=0; and in         areas with no green vegetation, L=1. Generally, an L=0.5 works well in             most     situations and is the default value used. When L=0, then SAVI =      NDVI.
 }
 \usage{
-SAVI(a = NIR, b = Red)
+SAVI(a="NIR",b="Red")
 }
 \arguments{
   \item{a}{NIR satellite band (format:TIF)
@@ -21,7 +21,7 @@ SAVI(a = NIR, b = Red)
 \author{Mehdi Sarparast}
 \examples{
 ## The function is currently defined as
-function (a = NIR, b = Red)
+function (a="NIR",b="Red")
 {
 name <- SAVI(a,b)
 areaXY <-c(xmin, xmax, ymin, ymax)
@@ -30,9 +30,8 @@ plot(cropXY,lwd=4,
      main="SAVI",
      xlab="easting", ylab="northing")
 hist(cropXY,
-     main="Histogram of SAVI"
+     main="SAVI"
      ,
      xlab="SAVI",col="red", ylab="Frequency of Pixels")
   }
 }
-

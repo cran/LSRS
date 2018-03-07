@@ -6,10 +6,10 @@
 NBR=(NIR - SWIR) / (NIR + SWIR)
 }
 \usage{
-NBR(a = NIR, b = SWIR)
+NBR(a = "NIR", b = "SWIR")
 }
 \arguments{
-  \item{a}{NIR satellite band (format:TIF)
+  \item{a}{NIR satellite band  (format:TIF)
 }
   \item{b}{SWIR satellite band (format:TIF)
 }
@@ -20,9 +20,9 @@ NBR(a = NIR, b = SWIR)
 \author{Mehdi Sarparast}
 \examples{
 ## The function is currently defined as
-function (a = NIR, b = SWIR)
+function (a = "NIR", b = "SWIR")
 {
-name=NBR(a,b)
+    name=NBR(a,b)
 areaXY <-c(xmin, xmax, ymin, ymax)
 cropXY <- crop(name, areaXY)
 plot(cropXY,lwd=4,
@@ -34,5 +34,3 @@ hist(cropXY,
      xlab="NBR",col="red", ylab="Frequency of Pixels")
      }
 }
-
-
